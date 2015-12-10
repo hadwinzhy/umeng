@@ -6,11 +6,17 @@ module Umeng
     include Umeng::Services
     include Umeng::JsonBody
 
+    module APIKey
+      PRODUCTION_MODE = :production_mode
+      DEVICE_TOKENS = :device_tokens
+      PUSH_TYPE = :type
+    end
+
     # 广播
     def push_broadcast(opts={})
       params = {
-        type: 'broadcast',
-        production_mode: opts[:production_mode]
+        PUSH_TYPE => 'broadcast',
+        PRODUCTION_MODE => opts[PRODUCTION_MODE]
       }
       case @plantform
       when 'Android'
@@ -25,9 +31,9 @@ module Umeng
     # 单播
     def push_unicast(device_tokens, opts={})
       params = {
-        device_tokens: device_tokens,
-        type: 'unicast',
-        production_mode: opts[:production_mode]
+        DEVICE_TOKENS => device_tokens,
+        PUSH_TYPE => 'unicast',
+        PRODUCTION_MODE => opts[PRODUCTION_MODE]
       }
       case @plantform
       when 'Android'
@@ -42,9 +48,9 @@ module Umeng
     # 列播
     def push_listcast(device_tokens, opts={})
       params = {
-        device_tokens: device_tokens,
-        type: 'listcast',
-        production_mode: opts[:production_mode]
+        DEVICE_TOKENS => device_tokens,
+        PUSH_TYPE => 'listcast',
+        PRODUCTION_MODE => opts[PRODUCTION_MODE]
       }
       case @plantform
       when 'Android'
