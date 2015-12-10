@@ -15,10 +15,10 @@ module Umeng
       {
         payload: {
           aps: {
-            alert: opts[:content]
+            alert: opts[:key_value][:content]
           }
         }.merge(opts[:key_value])
       }
     end
   end
-end
+end 

@@ -14,10 +14,10 @@ module Umeng
       }
       case @plantform
       when 'Android'
-        params.merge! android_params(content, opts)
+        params.merge! android_params(opts)
         push(params)
       when 'iOS'
-        params.merge! ios_params(content, opts)
+        params.merge! ios_params(opts)
         push(params)
       end
     end
