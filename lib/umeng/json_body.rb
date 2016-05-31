@@ -3,7 +3,7 @@ module Umeng
     def android_params(opts={})
       {
         payload: {
-          display_type: 'message',
+          display_type: 'notification',
           body: {
             custom: opts[:key_value]
           }
