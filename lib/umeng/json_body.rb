@@ -1,8 +1,7 @@
 module Umeng
   module JsonBody
     def android_params(opts={})
-      {
-      }
+      opts
     end
 
     def ios_params(opts={})
